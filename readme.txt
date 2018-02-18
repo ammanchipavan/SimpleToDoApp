@@ -1,0 +1,1 @@
+Just double click on the html page (index) to run the application

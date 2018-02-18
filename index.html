@@ -1,0 +1,42 @@
+<html lang="" ng-app="todoApp">
+	<head>
+		<title> To Do Application - Angular JS</title>
+		<link rel="stylesheet" href="css/inlineStyle.css"></link>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+		
+	</head>
+	
+	<body>
+		<div ng-controller="MainController as main">
+			<h1> 
+				You have 
+				<span>{{main.taskList.length}}</span>
+				<span ng-show="main.taskList.length < 2">task</span>
+				<span ng-show="main.taskList.length > 1">tasks</span>
+			</h1>
+
+			<form ng-submit="main.addTask()">
+				<input type="text" ng-model="main.taskInput" required/>
+				<input type="submit" />
+			</form>
+
+			<ui ng-repeat="task in main.taskList">
+				<li ng-class="{'completed-task': task.done}">
+					<div class="edit-mode" ng-show="task.edit">
+						<input type="text" ng-model="task.desc">
+						&nbsp;<a ng-click="task.edit=false">save</a>
+					</div>
+					<div class="show-mode" ng-show="!task.edit">
+						<input type="checkbox" ng-model="task.done">
+						{{task.desc}}
+						&nbsp;<a ng-click="task.edit=true" ng-hide="task.done">Edit</a>
+					</div>
+				</li>
+			</ui>
+			<br/>
+			<button ng-click="main.clearCompleted()" ng-show="main.taskList.length > 0">Clear Task</button>
+		</div>
+	</body>
+	<script src="js/inlineScript.js"></script>
+	
+</html>

@@ -1,0 +1,31 @@
+body{
+    padding: 20px;
+    margin: 0;
+}
+
+.completed-task{
+    text-decoration: line-through;
+}
+
+a{
+    color: cornflowerblue;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+    margin: 0;
+}
+
+.show-mode{
+
+}
+
+.edit-mode{
+
+}
